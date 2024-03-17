@@ -1,9 +1,19 @@
-import React from 'react'
+"use client";
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 const Company = () => {
-  return (
-    <div>company</div>
-  )
+  const route = useRouter();
+  const pathName = usePathname();
+  const params = useSearchParams();
+
+  //console.log(pathName);
+  console.log(params.get("txt"));
+
+  return <div>company
+    <button onClick={() => {
+      route.replace('/')      
+    }}>Nagivate to home</button>
+  </div>;
 }
 
 export default Company;
